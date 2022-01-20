@@ -33,7 +33,7 @@ The second file Maria gave us was about every student in the district. The file 
 ![](Resources/student_complete.png)
 
 
-#Overview of Analysis Request
+# Overview of Analysis Request
 
 The school board has requested a number of metrics to be produced from the data which will help them look at the following:
 
@@ -53,17 +53,17 @@ The school board has requested a number of metrics to be produced from the data 
 </ul>
 </ul>
 
-#Overview of Analysis Process
+# Overview of Analysis Process
 
 After Maria sent us the data files to be analyzed the first thing we had to do was check the data. The data files were opened in Excel to see if there were any obvious problems with the data files.
 
-##Check Data File in Excel
+## Check Data File in Excel
 
 Both files were loaded into Excel. A manual verification was performed in Excel by doing a quick examine of the data file. 
 
 Both files loaded into Excel correctly and the examine of the data revealed that both files seemed to have the appropriate data.
 
-##Cleanse Data
+## Cleanse Data
 
 As we inspected the data in Exec, we noticed a number of oddities in the data. Many of the students had prefixes or suffixes on attached to their names.
 
@@ -93,7 +93,7 @@ We define the list of bad prefixes and suffixes and the then looped though the l
 
 Now that we had a valid of student names, we could start the data analysis.
 
-##Problem with Thomas High School 9th Grade Data
+## Problem with Thomas High School 9th Grade Data
 
 The school board has notified Maria and her supervisor that the student data file shows evidence of academic dishonesty; specifically, reading and math grades for Thomas High School ninth graders appear to have been altered. Although the school board does not know the full extent of the academic dishonesty, they want to uphold state-testing standards and have turned to Maria for help. She has asked us to replace the math and reading scores for Thomas High School with NaNs while keeping the rest of the data intact. 
 
@@ -105,7 +105,7 @@ The first thing we need to do is remove the reading and math scores for the 9th 
 	student_data_df.loc[(student_data_df["school_name"]=="Thomas High School") & (student_data_df["grade"]=="9th"),["reading_score"]] = np.NaN
 
 
-##Affects on Thomas High School's Data
+## Affects on Thomas High School's Data
 
 When we look at the scores Thomas high school had before this issue was raised. 
 
@@ -227,7 +227,7 @@ The final task is to find the percentage of students which passed the both the r
 	# Step 4.Calculate the overall passing percentage with new total student count.
 	overall_passing_percentage = overall_passing_math_reading_count / new_total_count * 100
 
-##District level metrics
+## District level metrics
 
 Once we had of the metrics calculated, we could assemble them into a Pandas Dataframe.
 
@@ -265,7 +265,7 @@ After formatting all of the columns utilizing the map function of the dataframe,
 ![](Resources/district_dataframe.jpg)
 
 
-##School Level Metrics
+## School Level Metrics
 
 Now that the overall district level metrics have been calculated, we are asked to move on to the school level metrics. These metrics will include the following for each school:
 
@@ -313,7 +313,7 @@ We will do the same analysis that we did for the school district metrics, but wi
 
  ![](Resources/school_metrics_raw.jpg)
 
-##Metrics by School Spending per Student
+## Metrics by School Spending per Student
 
 Maria said that the analysis was great. It has raised more questions with the school board.
 
@@ -367,12 +367,12 @@ After all of the metrics are calculated we assemble the results into a dataframe
 
 ![](Resources/school_metrics_spending_output.jpg)
 
-###Analysis Outcome
+### Analysis Outcome
 
 After looking at the data by spending per student it becomes obvious that spending more per student is not the answer. The data shows that the two highest spending buckets, 630-644 and >645, both did the worst on both the math and reading test, and on percentage of overall passing.
 
  
-##Metrics by School Size
+## Metrics by School Size
 
 The next question the school board would like researched is: How does school size affect the school's average scores and passing percentages?  Maria tasks us with finding an answer to this question. This information will help the school board make decisions about building new facilities in the future. Maria would like to see this data organized by the student body size for the schools.
 
@@ -419,11 +419,11 @@ After all of the metrics are calculated we assemble the results into a dataframe
 
 ![](Resources/school_metrics_size_output.jpg)
 
-###Analysis Outcome
+### Analysis Outcome
 
 After looking at the data by student body size it becomes obvious that the larger the study body size the less likely the student is to pass. The data shows that the large school size, 2000-5000, did the worst on both the math and reading test, and on percentage of overall passing by large margins.
 
-##Metrics by School Type
+## Metrics by School Type
 
 The final question the school board would like researched is: How does school type affect the school's average scores and passing percentages?  Maria tasks us with finding an answer to this question. Maria would like to see this data organized by the student body size for the schools.
 
@@ -461,7 +461,7 @@ After all of the metrics are calculated we assemble the results into a dataframe
 
 
 
-###Analysis Outcome
+### Analysis Outcome
 
 After looking at the data by school type it becomes obvious that students in public, or district, schools are far less likely to pass. The data shows that the district schools did the worst on both the math and reading test, and on percentage of overall passing by large margins.
 
